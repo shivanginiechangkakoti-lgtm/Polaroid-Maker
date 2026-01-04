@@ -1,0 +1,5 @@
+{
+  "name": "Polaroid Maker",
+  "description": "A nostalgic instant camera simulator that turns your digital photos into developed Polaroids with realistic sound effects, animations, and visual artifacts.",
+  "requestFramePermissions": []
+}
