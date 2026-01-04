@@ -322,18 +322,18 @@ export default function App() {
            style={{ backgroundImage: 'radial-gradient(#999 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
       </div>
 
-      <div className="z-10 w-full max-w-2xl flex flex-col items-center gap-12">
+      <div className="z-10 w-full max-w-2xl flex flex-col items-center gap-10 md:gap-24 lg:gap-32">
         
         {/* Header */}
         <div className="text-center space-y-1 z-20">
           <h1 className="text-4xl font-black tracking-tighter text-stone-800 flex items-center justify-center gap-3">
              Polaroid Maker
           </h1>
-          <p className="text-stone-500 text-sm font-medium tracking-wide uppercase">Digital Instant Photography</p>
+          <p className="text-stone-500 text-sm font-medium tracking-wide uppercase">Instant Digi Films</p>
         </div>
 
         {/* The Camera Interface */}
-        <div className="relative group perspective-1000">
+        <div className="relative group perspective-1000 transform scale-[0.8] sm:scale-100 md:scale-125 lg:scale-150 transition-transform duration-500 origin-center">
           
           <input 
             type="file" 
@@ -356,10 +356,10 @@ export default function App() {
                 background: `linear-gradient(to bottom, #d4d4d4 0%, #a0a0a0 15%, #1a1a1a 15.1%, #1a1a1a 85%, #a0a0a0 85.1%, #d4d4d4 100%)`
             }}
           >
-            {/* Faux Leather Texture */}
+            {/* Real Leather Texture */}
             <div className="absolute top-[15.1%] bottom-[15%] left-0 right-0 bg-[#151515]"
                 style={{ 
-                    backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'0 0 2000 2000\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'1.5\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.15\'/%3E%3C/svg%3E")',
+                    backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.6\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.3\'/%3E%3C/svg%3E")',
                     backgroundSize: '150px' 
                 }}>
             </div>
