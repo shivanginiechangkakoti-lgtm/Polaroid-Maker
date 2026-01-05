@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
-import { Download, RefreshCw, Smartphone, Zap } from 'lucide-react';
+import { Download, RefreshCw, Smartphone, Zap, Instagram, ArrowUpRight } from 'lucide-react';
 
 export default function App() {
   const [previewImage, setPreviewImage] = useState<string | null>(null); // Just the cropped photo for UI
@@ -333,7 +333,12 @@ export default function App() {
         </div>
 
         {/* The Camera Interface */}
-        <div className="relative group perspective-1000 transform scale-[0.8] sm:scale-100 md:scale-125 lg:scale-150 transition-transform duration-500 origin-center">
+        <div className={`
+          relative group perspective-1000 
+          transform transition-transform duration-500 origin-center
+          scale-[0.55] sm:scale-100 md:scale-125 lg:scale-150
+          ${previewImage ? 'translate-x-[12%] sm:translate-x-0' : ''}
+        `}>
           
           <input 
             type="file" 
@@ -489,24 +494,37 @@ export default function App() {
 
         {/* Controls */}
         <div className={`
-            flex gap-6 transition-all duration-700 delay-[2500ms]
+            flex flex-col items-center gap-4 transition-all duration-700 delay-[2500ms]
             ${previewImage && !isProcessing ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}
         `}>
-             <button 
-                onClick={handleDownload}
-                className="flex items-center gap-2 bg-stone-800 hover:bg-black text-white px-8 py-3 rounded-sm font-bold uppercase tracking-wider text-sm shadow-xl hover:shadow-2xl transition-all active:translate-y-0.5"
-             >
-                <Download className="w-4 h-4" />
-                Save Film
-             </button>
+             <div className="flex gap-6">
+                 <button 
+                    onClick={handleDownload}
+                    className="flex items-center gap-2 bg-stone-800 hover:bg-black text-white px-8 py-3 rounded-sm font-bold uppercase tracking-wider text-sm shadow-xl hover:shadow-2xl transition-all active:translate-y-0.5"
+                 >
+                    <Download className="w-4 h-4" />
+                    Save Film
+                 </button>
 
-             <button 
-                onClick={reset}
-                className="flex items-center gap-2 bg-transparent hover:bg-stone-200 text-stone-600 border-2 border-stone-400 px-6 py-3 rounded-sm font-bold uppercase tracking-wider text-sm transition-all active:translate-y-0.5"
+                 <button 
+                    onClick={reset}
+                    className="flex items-center gap-2 bg-transparent hover:bg-stone-200 text-stone-600 border-2 border-stone-400 px-6 py-3 rounded-sm font-bold uppercase tracking-wider text-sm transition-all active:translate-y-0.5"
+                 >
+                    <RefreshCw className="w-4 h-4" />
+                    Retake
+                 </button>
+             </div>
+             
+             <a 
+               href="https://instagram.com/kenkeniiiii" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="group flex items-center gap-1 text-[10px] font-bold tracking-[0.15em] text-stone-400 hover:text-stone-800 transition-all duration-300 uppercase"
              >
-                <RefreshCw className="w-4 h-4" />
-                Retake
-             </button>
+               <Instagram className="w-3 h-3 transition-transform group-hover:scale-110" />
+               <span className="border-b border-transparent group-hover:border-stone-800 pb-0.5">follow @kenkeniiiii for more</span>
+               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+             </a>
         </div>
       </div>
     </div>
